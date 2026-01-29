@@ -1,4 +1,4 @@
-# JavaScript Hoisting, TDZ & `this` (MDN-based Notes)
+# JavaScript Hoisting, TDZ & `this` 
 
 ## 1. Hoisting
 

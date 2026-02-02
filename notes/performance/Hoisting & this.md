@@ -31,7 +31,7 @@ var a;
 console.log(a);
 a = 10;
 var is hoisted
-
+```
 Initialized with undefined
 
 No TDZ
@@ -46,21 +46,25 @@ BUT they are not initialized
 Access before declaration triggers TDZ
 
 1.4 Function Declarations
+```js
 sayHi();
 
 function sayHi() {
   console.log("Hi");
 }
+```
 Fully hoisted
 
 Can be called before declaration
 
 1.5 Function Expressions
+```js
 sayHello(); // ReferenceError
 
 const sayHello = function () {
   console.log("Hello");
 };
+```
 Variable is hoisted
 
 Function is NOT
@@ -79,17 +83,21 @@ const
 class
 
 2.1 TDZ Example
+```js
 {
   console.log(x); // ReferenceError
   let x = 5;
 }
+```
 TDZ starts at beginning of scope
 
 TDZ ends at declaration line
 
 2.2 Important TDZ Rule
+```js
 typeof y; // ReferenceError
 let y = 10;
+```
 Even typeof fails inside TDZ.
 
 3. this Keyword
@@ -102,6 +110,7 @@ Browser: window
 Node.js: {} (module scope)
 
 3.2 this in Regular Functions
+```js
 function test() {
   console.log(this);
 }
@@ -123,15 +132,19 @@ const user = {
 };
 
 user.greet(); // "Alex"
+```
 this refers to the object before the dot (.)
-
+```js
 3.4 this in Arrow Functions
+
+```js
 const user = {
   name: "Alex",
   greet: () => {
     console.log(this.name);
   }
 };
+```
 ❌ Does NOT work as expected.
 
 Why?
@@ -139,7 +152,8 @@ Arrow functions do NOT have their own this
 
 They inherit this from surrounding scope
 
-3.5 Correct Arrow Function Usage
+3.5 Correct Arrow Function 
+```js
 const user = {
   name: "Alex",
   greet() {
@@ -151,6 +165,7 @@ const user = {
 };
 
 user.greet(); // "Alex"
+```
 ✔️ Arrow inherits this from greet
 
 4. Common Pitfalls
@@ -168,22 +183,6 @@ Expecting this to refer to function owner ❌
 Hoisting
 “Declarations are registered first, execution happens later”
 
-TDZ
-“Declared but not usable yet”
-
-this
-“Who called the function?”
-
-6. MDN References
-Hoisting
-https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
-
-let / const / TDZ
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
-
-this keyword
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 
 
-```

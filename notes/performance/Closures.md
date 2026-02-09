@@ -217,7 +217,7 @@ const fn = outer();
 fn();
 ```
 
-![alt text](image.png)
+![alt text](./Screenshots/image-4.png)
 
 1. 🛠️ When paused:
 

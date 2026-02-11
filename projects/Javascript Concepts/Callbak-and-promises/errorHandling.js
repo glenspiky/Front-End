@@ -3,16 +3,18 @@ const cart = ["shues", "pants", "shirts"];
 createOder(cart)
   .then(function (orderId) {
     console.log(orderId);
-    return orderId;
+return orderId
     //procedToPayment(orderId);
   })
   .then((orderId) => {
     return procedToPayment(orderId);
   })
   .then((paymentInfo) => {
-    console.log("payment info");
+     console.log("payment info");
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
-
 //producer
 function createOder(cart) {
   const pr = new Promise((resolve, reject) => {

@@ -28,14 +28,14 @@ body {
 }
 .task-input > button {
   border: none;
-  background-color: #3b82f6;
+  background-color: green;
   color: #f1f5f9;
   padding: 4px 15px;
   border-top-right-radius: 4px;
   cursor: pointer;
 }
 .task-input > button:hover {
-  background-color: #2563eb;
+  background-color: rgba(0, 128, 0, 0.795);
 }
 .task-input input {
   max-width: 300px;
@@ -90,4 +90,35 @@ body {
 }
 .todoEl > button:hover {
   background-color: #dc2626;
+}
+.todoEl .edit-btn {
+  background-color:  #3b82f6;
+}
+.todoEl .edit-btn:hover{
+  background-color:#2563eb;
+}
+/* Edit input inside todo item */
+.todoEl .edit-input {
+  flex: 1; /* takes remaining space */
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #3b82f6; /* matches blue theme */
+  background-color: #273449; /* same as task input */
+  color: #f1f5f9;
+  outline: none;
+}
+
+/* Save button inside todo item */
+.todoEl .save-btn {
+  background-color: #10b981; /* green to indicate save */
+  color: #f1f5f9;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todoEl .save-btn:hover {
+  background-color: #059669; /* darker green on hover */
 }

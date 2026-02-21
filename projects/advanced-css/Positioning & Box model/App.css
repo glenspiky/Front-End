@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 300;
+  height: 3800px;
+  background-color: lightgray;
+  margin-top: 100px;
+  margin-left: 50px;
+  font-size: 40px;
+  position: relative;
+}
+.box-1{
+    height: 50px;
+    width: 50px;
+    background-color: lightcoral;
+}
+.box-2{
+    height: 100px;
+    width: 100px;
+    background-color: lightgreen;
+    /* position: static;default */
+    /* position: relative; */
+    /* these only work when position is anything else other than static */
+    /* top: 30px;
+    left: 30px; */
+    /* position: absolute; */
+    /* bottom: 0;
+    right: 0; */
+    position: sticky;
+    top: 0;
+
+}
+.box-3{
+    height: 150px;
+    width: 150px;
+    background-color: lightblue;
+}

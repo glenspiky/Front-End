@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.parent{
+    background-color: darkblue;
+    padding: 50px;
+    /* width: 900px; */
+    margin: auto;
+    width: 80%;
+}
+.child{  
+    background-color: lightblue;
+    /* height: 250px; */
+    padding: 5em;/*iem = 80px (16*5 =80*/
+}

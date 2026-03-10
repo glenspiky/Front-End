@@ -7,6 +7,7 @@ const close = document.getElementById("close");
 const slider = document.getElementById("slider");
 const left = document.getElementsByClassName("left");
 const right = document.getElementsByClassName("right");
+const productContainer = document.getElementById("productContainer");
 
 function toggleDropDown() {
   account.addEventListener("click", () => {
@@ -113,7 +114,7 @@ function closeSidebar() {
   catCenter.style.display = "none";
 }
 let index = 0;
-const firstClone = slider[0].cloneNode(true);
+// const firstClone = slider[0].cloneNode(true);
 const width = document.querySelector(".top-sellers-right").clientWidth;
 function slideImagesLeft() {
   index++;
@@ -134,3 +135,59 @@ function slideImagesRight() {
 
   console.log(index);
 }
+
+//Generate products
+function generateProducts() {
+  async function getProducts() {
+    const res = await fetch("https://dummyjson.com/products");
+    const data = await res.json();
+    displayProducts(data);
+  }
+  getProducts();
+  function displayProducts(data) {
+    // console.log(data);
+
+    function generateStars(rating) {
+      const fullStars = Math.floor(rating);
+      const emptyStars = 5 - fullStars;
+
+      const full = `<i class="ri-star-fill"></i>`.repeat(fullStars);
+      const empty = `<i class="ri-star-line"></i>`.repeat(emptyStars);
+
+      return full + empty;
+    }
+
+    generateStars();
+
+    const updatedData = data.products
+      .map(({ id, images, title, price, rating, discountPercentage }) => {
+        const stars = generateStars(rating);
+        return `
+  <div class="product-item" id="${id}">
+          <div class="pro-img">
+            <img src=${images[0]} alt="" />
+          </div>
+          <div class="pro-desc">
+            <h3>${title}</h3>
+            <h2>KES ${price}<span>
+                        KES ${(price - (price * discountPercentage) / 100).toFixed(2)}
+            </span></h2>
+                        <span>Save KES ${((price * discountPercentage) / 100).toFixed(2)}</span>
+           <div class="rating">
+            ${stars}
+              <span class="rating-num">${rating.toFixed(1)}</span>
+              </div>
+            <div class="add-cart">
+           <i class="ri-shopping-basket-fill"></i> 
+              <p>Add to cart</p>
+            </div>
+          </div>
+        </div>`;
+      })
+      .join("");
+    productContainer.innerHTML = updatedData;
+    // console.log(productContainer);
+  }
+}
+
+generateProducts();

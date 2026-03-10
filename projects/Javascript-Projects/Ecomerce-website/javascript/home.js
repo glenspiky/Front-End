@@ -3,16 +3,20 @@ const help = document.querySelector(".help");
 const accContainer = document.querySelector(".acc-container");
 const helpContainer = document.querySelector(".help-container");
 const search = document.getElementById("search");
+const close = document.getElementById("close");
+const slider = document.getElementById("slider");
+const left = document.getElementsByClassName("left");
+const right = document.getElementsByClassName("right");
 
 function toggleDropDown() {
   account.addEventListener("click", () => {
-    const isOpen = (accContainer.style.display === "flex");
+    const isOpen = accContainer.style.display === "flex";
     helpContainer.style.display = "none";
     help.style.backgroundColor = "";
 
     if (isOpen) {
-        account.style.backgroundColor = "";
-        accContainer.style.display = "none";
+      account.style.backgroundColor = "";
+      accContainer.style.display = "none";
     } else {
       account.style.backgroundColor = "lightgrey";
       accContainer.style.display = "flex";
@@ -29,7 +33,7 @@ function toggleDropDown() {
     }
   });
   help.addEventListener("click", () => {
-    const isOpen = (helpContainer.style.display === "flex");
+    const isOpen = helpContainer.style.display === "flex";
     account.style.backgroundColor = "";
     accContainer.style.display = "none";
 
@@ -56,28 +60,77 @@ function toggleDropDown() {
     }
   });
   document.addEventListener("click", (event) => {
-    const isClickInsideAccount = account.contains(event.target) || accContainer.contains(event.target)
-    const isClickInsideHelp = help.contains(event.target) || helpContainer.contains(event.target)
+    const isClickInsideAccount =
+      account.contains(event.target) || accContainer.contains(event.target);
+    const isClickInsideHelp =
+      help.contains(event.target) || helpContainer.contains(event.target);
     if (!isClickInsideAccount) {
-       account.style.backgroundColor = "";
-       accContainer.style.display = "none";
-
+      account.style.backgroundColor = "";
+      accContainer.style.display = "none";
     }
     if (!isClickInsideHelp) {
       help.style.backgroundColor = "";
       helpContainer.style.display = "none";
     }
-  })
-  
+  });
 }
 toggleDropDown();
 
 function updatePlaceHolder() {
-  if (window.innerWidth>600 && window.innerWidth<964) {
-    search.placeholder="Search products and brands..."
+  if (window.innerWidth > 600 && window.innerWidth < 964) {
+    search.placeholder = "Search products and brands...";
   } else {
     search.placeholder = "Search for products, brands, and categories";
   }
 }
-updatePlaceHolder()
-window.addEventListener("resize",updatePlaceHolder)
+updatePlaceHolder();
+window.addEventListener("resize", updatePlaceHolder);
+
+function updatePlaceHolder() {
+  if (window.innerWidth > 600 && window.innerWidth < 964) {
+    search.placeholder = "Search products and brands...";
+  } else {
+    search.placeholder = "Search for products, brands, and categories";
+  }
+}
+updatePlaceHolder();
+window.addEventListener("resize", updatePlaceHolder);
+
+function openSidebar() {
+  const catCenter = document.getElementById("catCenter");
+  console.log("helllo");
+
+  const isOpen = catCenter.style.display === "flex";
+  catCenter.style.display = "none";
+  if (isOpen) {
+    catCenter.style.display = "none";
+  } else {
+    catCenter.style.display = "flex";
+  }
+}
+
+function closeSidebar() {
+  catCenter.style.display = "none";
+}
+let index = 0;
+const firstClone = slider[0].cloneNode(true);
+const width = document.querySelector(".top-sellers-right").clientWidth;
+function slideImagesLeft() {
+  index++;
+  slider.style.transform = `translateX(-${index * width}px)`;
+  if (index === slider.length) {
+    setTimeout(() => {
+      slider.appendChild(firstClone);
+
+      slider.style.transition = "none";
+      index = 0;
+      slider.style.transform = `translateX(0px)`;
+    }, 400);
+  }
+}
+function slideImagesRight() {
+  index--;
+  slider.style.transform = `translateX(${index * width}px)`;
+
+  console.log(index);
+}

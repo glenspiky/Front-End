@@ -68,11 +68,16 @@
     <section class="hero-section">
       <div class="categories">
         <div class="categories-container">
-          <div class="cat-left">
+          <div onclick="openSidebar()" class="cat-left">
+            <span onclick="openSidebar()" id="mobile"></span>
             <i class="ri-equalizer-line"></i>
             <p>Category</p>
           </div>
-          <ul class="cat-center">
+          <ul class="cat-center" id="catCenter">
+            <button onclick="closeSidebar()" id="close">
+              <i class="ri-close-large-line"></i>
+            </button>
+
             <li class="cat-item">
               <i class="ri-t-shirt-2-line"></i>
               <p>Outfits</p>
@@ -110,38 +115,83 @@
       </div>
     </section>
     <div class="top-selers-section">
-        <div class="top-sellers">
-          <div class="top-sellers-left">
-            <h3>Top Sales</h3>
-            <ul>
+      <div class="top-sellers">
+        <div class="top-sellers-left">
+          <span class="head"> <h3>Top Sales</h3></span>
+          <ul class="top-items">
+            <li>
               <i class="ri-megaphone-line"></i>
-              <li>Promos</li>
-              <i class="ri-cake-3-line"></i>
-              <li>Snacks</li>
-              <i class="ri-ink-bottle-line"></i>
-              <li>Fats & Oils</li>
-              <i class="ri-bowl-line"></i>
+              <span>Promos</span>
+            </li>
 
-              <li>Vegetables</li>
+            <li>
+              <i class="ri-cake-3-line"></i>
+              <span>Snacks</span>
+            </li>
+
+            <li>
+              <i class="ri-ink-bottle-line"></i>
+              <span>Fats & Oils</span>
+            </li>
+
+            <li>
+              <i class="ri-bowl-line"></i>
+              <span>Vegetables</span>
+            </li>
+
+            <li>
               <i class="ri-restaurant-2-line"></i>
-              <li>Food Additives</li>
+              <span>Food Additives</span>
+            </li>
+
+            <li>
               <i class="ri-goblet-2-line"></i>
-              <li>Beverage</li>
+              <span>Beverage</span>
+            </li>
+
+            <li>
               <i class="ri-hand-sanitizer-line"></i>
-              <li>Cleaning</li>
-             <i class="ri-book-2-line"></i>
-              <li>Stationery</li>
+              <span>Cleaning</span>
+            </li>
+
+            <li>
+              <i class="ri-book-2-line"></i>
+              <span>Stationery</span>
+            </li>
+
+            <li>
               <i class="ri-brush-ai-line"></i>
-              <li>Beauty & Cosmetics</li>
-            </ul>
-          </div>
-          <div class="top-sellers-right">
-            <i class="ri-arrow-right-s-line right"></i>
-            <i class="ri-arrow-left-s-line left"></i>
-            <img src="../assets/images/banner4.png" alt="" />
+              <span>Cosmetics</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="top-sellers-right">
+          <div id="sliderContainer">
+            <div class="slide-icons">
+              <i
+                onclick="slideImagesLeft()"
+                class="ri-arrow-left-s-line left"
+              ></i>
+              <div class="slide-image" id="slider">
+              <img src="./banner1.png" alt="" />
+              <img src="./banner2.png" alt="" />
+              <img src="./banner3.png" alt="" />
+              <img src="./banner4.png" alt="" />
+              <img src="./banner5.png" alt="" />
+              <img src="./banner6.png" alt="" />
+              <img src="./banner7.png" alt="" />
+            </div>
+              <i
+                onclick="slideImagesRight()"
+                class="ri-arrow-right-s-line right"
+              ></i>
+            </div>
+            
           </div>
         </div>
       </div>
+    </div>
   </body>
   <script src="/javascript/home.js"></script>
 </html>

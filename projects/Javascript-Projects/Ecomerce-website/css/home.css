@@ -191,6 +191,7 @@ body {
   top: 100%;
   background-color: var(--color-white);
   padding: 10px;
+  z-index: 1000000;
 }
 
 .navbar .acc-container button {
@@ -224,7 +225,7 @@ body {
   display: none;
   flex-direction: column;
   width: 200px;
-
+z-index: 100000000;
   top: 100%;
   background-color: var(--color-white);
 }
@@ -299,6 +300,12 @@ body {
     right: -30px;
     top: 40px;
   }
+}
+@media screen and (max-width: 732px) {
+  .navbar .help-container {
+    right: -30px;
+  }
+ 
 }
 @media screen and (max-width: 600px) {
   .navbar {

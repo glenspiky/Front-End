@@ -1,3 +1,8 @@
+type Pizza={
+    name:string
+    price:number
+}
+
 const menu = [
     { name: "Margherita", price: 8 },
     { name: "Pepperoni", price: 10 },
@@ -9,11 +14,11 @@ let cashInRegister = 100
 let nextOrderId = 1
 const orderQueue = []
 
-function addNewPizza(pizzaObj) {
+function addNewPizza(pizzaObj:Pizza) {
     menu.push(pizzaObj)
 }
 
-function placeOrder(pizzaName) {
+function placeOrder(pizzaName:string) {
     const selectedPizza = menu.find(pizzaObj => pizzaObj.name === pizzaName)
     if (!selectedPizza) {
         console.error(`${pizzaName} does not exist in the menu`)
@@ -25,11 +30,7 @@ function placeOrder(pizzaName) {
     return newOrder
 }
 
-/**
- * Challenge: Teach TS what data type should be used for the 
- * orderId in the completeOrder function. Then check for any
- * additional warnings TS comes up with and fix those.
- */
+
 
 function completeOrder(orderId: number) {
     const order = orderQueue.find(order => order.id === orderId)
@@ -37,9 +38,9 @@ function completeOrder(orderId: number) {
     return order
 }
 
-addNewPizza({ name: "Chicken Bacon Ranch", cost: 12 })
-addNewPizza({ name: "BBQ Chicken", cost: 12 })
-addNewPizza({ name: "Spicy Sausage", cost: 11 })
+addNewPizza({ name: "Chicken Bacon Ranch", price: 12 })
+addNewPizza({ name: "BBQ Chicken", price: 12 })
+addNewPizza({ name: "Spicy Sausage", price: 11 })
 
 placeOrder("Chicken Bacon Ranch")
 completeOrder(1)

@@ -9,6 +9,7 @@ const left = document.getElementsByClassName("left");
 const right = document.getElementsByClassName("right");
 const productContainer = document.getElementById("productContainer");
 const firstSliderItem = document.getElementsByClassName("first");
+const cartValue = document.getElementById("cartValue");
 
 function toggleDropDown() {
   account.addEventListener("click", () => {
@@ -78,14 +79,14 @@ function toggleDropDown() {
 }
 toggleDropDown();
 
-function updatePlaceHolder() {
-  if (window.innerWidth > 600 && window.innerWidth < 964) {
-    search.placeholder = "Search products and brands...";
-  } else {
-    search.placeholder = "Search for products, brands, and categories";
-  }
-}
-updatePlaceHolder();
+// function updatePlaceHolder() {
+//   if (window.innerWidth > 600 && window.innerWidth < 964) {
+//     search.placeholder = "Search products and brands...";
+//   } else {
+//     search.placeholder = "Search for products, brands, and categories";
+//   }
+// }
+// updatePlaceHolder();
 window.addEventListener("resize", updatePlaceHolder);
 
 function updatePlaceHolder() {
@@ -151,7 +152,7 @@ function slideImagesRight() {
 }
 
 //!Generate products
-productsItems = [];
+let productsItems = [];
 function generateProducts() {
   async function getProducts() {
     const res = await fetch("https://dummyjson.com/products");
@@ -208,20 +209,38 @@ function generateProducts() {
   }
 }
 
-generateProducts();
-
 //!cart
-cart = [];
+let cart = JSON.parse(localStorage.getItem("cartStored")) || [];
+updateCartCount();
 function addToCart(id) {
   console.log(id);
-  let cartItems = productsItems.find((item) => item.id == id);
-  const isItemInCart = cart.find((item) => item.id === id);
+  const isItemInCart = cart.find((item) => item.id == id);
   if (isItemInCart) {
-    isItemInCart.quantity+=1;
+    isItemInCart.quantity += 1;
   } else {
-    cart.push({...cartItems,quantity:1});
+    cart.push({ id: id, quantity: 1 });
   }
+  localStorage.setItem("cartStored", JSON.stringify(cart));
   console.log(cart);
-  
+  updateCartCount();
 }
 // console.log(productsItems);
+function updateCartCount() {
+  const totalProducts = cart.reduce((total, item) => total + item.quantity, 0);
+  cartValue.textContent = totalProducts;
+  console.log(totalProducts);
+  if (totalProducts === 0) {
+    cartValue.style.display = "none";
+  } else {
+    cartValue.style.display = "flex";
+  }
+}
+generateProducts();
+
+//!cart =======================================================================
+
+function showCartItems() {
+  console.log(productsItems);
+  alert("ss");
+}
+showCartItems();

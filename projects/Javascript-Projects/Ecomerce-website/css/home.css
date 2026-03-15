@@ -22,6 +22,10 @@ body {
 .navbar-container {
   width: 100%;
   background-color: var(--bg-card);
+    position: fixed;
+      z-index: 10000000000000;
+
+
 }
 a{
   color: black;
@@ -114,6 +118,21 @@ a{
   align-items: baseline;
   cursor: pointer;
   gap: 5px;
+  position: relative;
+}
+#cartValue{
+  position: absolute;
+  background-color:var(--color-primary);
+  color:var(--color-white);
+  border-radius: 50%;
+  height: 20px;
+
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -5px;
+  top: -5px;
 }
 .cart i {
   font-size: clamp(14px, 3vw, 32px);

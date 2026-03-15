@@ -1,2 +1,5 @@
-const cart=require('cart')
-console.log(cart);
+// import { cart, addToCart, updateCartCount } from "./orders";
+// // const cart = JSON.parse(localStorage.getItem("cartStored")) || [];
+
+// console.log(cart);
+// updateCartCount();

@@ -17,10 +17,15 @@
 }
 body {
   background-color: var(--color-accent);
+
 }
 .navbar-container {
   width: 100%;
   background-color: var(--bg-card);
+}
+a{
+  color: black;
+  text-decoration: none;
 }
 
 /* .navbar {
@@ -623,6 +628,7 @@ z-index: 100000000;
   align-items: center;
   margin-left: 5px;
   left: 0;
+  z-index: 10000;
 }
 /* .top-sellers-right #sliderContainer{
   display: flex;
@@ -665,6 +671,7 @@ z-index: 100000000;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: clamp(10px, 2vw, 15px);
+  overflow: hidden;
 }
 .products-section .products-container .product-item {
   background-color: #fafafa;

@@ -8,6 +8,7 @@ const slider = document.getElementById("slider");
 const left = document.getElementsByClassName("left");
 const right = document.getElementsByClassName("right");
 const productContainer = document.getElementById("productContainer");
+const firstSliderItem = document.getElementsByClassName("first");
 
 function toggleDropDown() {
   account.addEventListener("click", () => {
@@ -114,34 +115,49 @@ function closeSidebar() {
   catCenter.style.display = "none";
 }
 let index = 0;
-// const firstClone = slider[0].cloneNode(true);
+
 const width = document.querySelector(".top-sellers-right").clientWidth;
 function slideImagesLeft() {
   index++;
   slider.style.transform = `translateX(-${index * width}px)`;
+
   if (index === slider.length) {
     setTimeout(() => {
+      console.log(firstClone);
+
       slider.appendChild(firstClone);
 
       slider.style.transition = "none";
       index = 0;
       slider.style.transform = `translateX(0px)`;
-    }, 400);
+    }, 4);
   }
 }
-function slideImagesRight() {
-  index--;
-  slider.style.transform = `translateX(${index * width}px)`;
+const arr = [];
+arr.push(slider.children[0]);
+const firstClone = firstSliderItem;
+console.log(arr);
 
+function slideImagesRight() {
+  index++;
   console.log(index);
+
+  slider.style.transform = `translateX(-${index * width}px)`;
+  if (index === arr.length) {
+    console.log(firstClone);
+
+    slider.appendChild(firstClone);
+  }
 }
 
-//Generate products
+//!Generate products
+productsItems = [];
 function generateProducts() {
   async function getProducts() {
     const res = await fetch("https://dummyjson.com/products");
     const data = await res.json();
     displayProducts(data);
+    data.products.forEach((item) => productsItems.push(item));
   }
   getProducts();
   function displayProducts(data) {
@@ -162,6 +178,7 @@ function generateProducts() {
     const updatedData = data.products
       .map(({ id, images, title, price, rating, discountPercentage }) => {
         const stars = generateStars(rating);
+
         return `
   <div class="product-item" id="${id}">
           <div class="pro-img">
@@ -177,7 +194,7 @@ function generateProducts() {
             ${stars}
               <span class="rating-num">${rating.toFixed(1)}</span>
               </div>
-            <div class="add-cart">
+            <div class="add-cart" onclick="addToCart(${id})">
            <i class="ri-shopping-basket-fill"></i> 
               <p>Add to cart</p>
             </div>
@@ -186,8 +203,25 @@ function generateProducts() {
       })
       .join("");
     productContainer.innerHTML = updatedData;
+
     // console.log(productContainer);
   }
 }
 
 generateProducts();
+
+//!cart
+cart = [];
+function addToCart(id) {
+  console.log(id);
+  let cartItems = productsItems.find((item) => item.id == id);
+  const isItemInCart = cart.find((item) => item.id === id);
+  if (isItemInCart) {
+    isItemInCart.quantity+=1;
+  } else {
+    cart.push({...cartItems,quantity:1});
+  }
+  console.log(cart);
+  
+}
+// console.log(productsItems);

@@ -1,0 +1,147 @@
+/* Base Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+body {
+  background-color: var(--color-accent);
+
+}
+
+body {
+  background-color: var(--color-accent);
+
+}
+
+.cart-container {
+    max-width: 1100px;
+    margin:  auto;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Items List */
+.cart-items {
+    flex: 2;
+    min-width: 350px;
+}
+
+.cart-items h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.item-details {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.item-details img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.item-details h3 { margin: 0; font-size: 1.1rem; }
+.item-details p { color: #777; font-size: 0.9rem; margin: 5px 0; }
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #e63946;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.item-pricing {
+    text-align: right;
+}
+
+.item-pricing input {
+    width: 50px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.price { font-weight: bold; font-size: 1.1rem; margin: 0; }
+
+/* Summary Sidebar */
+.cart-summary {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    height: fit-content;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.total {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: opacity 0.2s;
+}
+
+.checkout-btn:hover { opacity: 0.8; }
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+}

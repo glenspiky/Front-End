@@ -1,7 +1,6 @@
 .navbar-container {
   width: 100%;
   background-color: var(--bg-card);
-    position: fixed;
       z-index: 10000000000000;
 
 

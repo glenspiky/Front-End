@@ -1,0 +1,24 @@
+export const Products = () => {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const respose = await fetch("https://dummyjson.com/products");
+      const data = await respose.json();
+      setProducts(data.products);
+    };
+    fetchProducts();
+  }, []);
+  const [products, setProducts] = useState([]);
+  function generateStars(rating) {
+    const stars = [];
+    for (let i = 0; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<i key={i} className="ri-star-fill"></i>);
+      } else {
+        stars.push(<i key={i} className="ri-star-line"></i>);
+      }
+    }
+
+    return stars;
+  }
+  //? use context
+  const CartContext = createContext();

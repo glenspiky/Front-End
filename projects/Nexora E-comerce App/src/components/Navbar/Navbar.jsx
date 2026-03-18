@@ -1,7 +1,13 @@
 import React from "react";
 import logo from "../../assets/icons/nexora-pri.png";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+
+
 export const Navbar = () => {
+  const { cart } = useCart()
+
   return (
     <div>
       <div className="navbar-container">
@@ -41,14 +47,14 @@ export const Navbar = () => {
             </div>
             <div className="help-container"></div>
           </div>
+          <Link to="/cart" className="cart">
+            {cart.length> 0 && (
+              <span id="cartValue">{cart.length}</span>
+            )}
 
-          <div className="cart">
-            <div id="cartValue"></div>
-            <a href="./oders.html">
-              <i className="ri-shopping-cart-2-line"></i>
-              <p>Cart</p>
-            </a>
-          </div>
+            <i className="ri-shopping-cart-2-line"></i>
+            <p>Cart</p>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,8 +1,13 @@
 import "./Cart.css";
 import { useCart } from "../../context/CartContext";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 export const Cart = () => {
   const { cart, setCart } = useCart();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   function addToCart(id) {
     const updatedCart = cart.map((item) =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
@@ -19,8 +24,16 @@ export const Cart = () => {
   }
 
   function removeFromCart(id) {
+    const itemToRemove = cart.find((item) => item.id === id);
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
+    toast.error(`${itemToRemove?.title || "Item"} removed from cart`, {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+      icon: '🗑️',})
   }
 
   // Calculate total for the whole cart

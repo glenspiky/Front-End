@@ -8,15 +8,20 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: clamp(10px, 2vw, 15px);
   overflow: hidden;
+  align-items: stretch;
 }
 .products-section .products-container .product-item {
   background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  height: 100%;
 }
+
 .products-section .products-container .product-item img {
   width: 100%;
 }
@@ -25,8 +30,8 @@
   display: flex;
   flex-direction: column;
   gap: clamp(10px, 2vw, 15px);
-  flex-grow: 1;
   overflow: hidden;
+  flex: 1;
 }
 .products-section .products-container .product-item .pro-desc h3 {
   font-size: 1em;
@@ -61,6 +66,7 @@
   cursor: pointer;
   color: var(--color-white);
   padding: 0.4em;
+  margin-top:auto;
 }
 .products-section .products-container .product-item .add-cart:hover {
   background-color: var(--bg-card);

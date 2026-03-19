@@ -12,7 +12,6 @@
   justify-content: space-between;
   position: relative;
   border: 1px solid lightgray;
-  top: 14vh;
 }
 
 .cat-center .cat-item {
@@ -65,10 +64,11 @@
   cursor: pointer;
   white-space: nowrap;
 }
+
 .top-selers-section {
   display: flex;
   width: min(95%, 1200px);
-  margin: 0 auto;
+  margin:  auto;
 }
 .top-selers-section .top-sellers-left {
   display: flex;

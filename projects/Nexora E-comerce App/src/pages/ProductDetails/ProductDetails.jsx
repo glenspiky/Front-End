@@ -80,7 +80,9 @@ export default function ProductDetails() {
           <div className="product-left">
             <div className="images">
               <div className="main-image">
-                <img src={gallery} alt="thumbnail" />
+                <div className="main-image-container">
+                  <img src={gallery} alt="product-zoom" className="zoom-img" />
+                </div>
                 <div className="gallery">
                   {product.images.map((img, index) => {
                     const isSelected = img === gallery;

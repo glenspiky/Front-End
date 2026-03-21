@@ -1,56 +1,4 @@
-:root {
-  /* =========================
-    BRAND COLORS
-  ========================== */
-  --color-primary: #f68b1e; /* Jumia Orange */
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --bg-purple: #b177da;
-  /* =========================
-     NEUTRAL COLORS
-  ========================== */
-  --color-dark-gray: #313133;
-  --color-medium-gray: #666666;
-  --color-light-gray: #f1f1f2;
-  --color-border-gray: #ededed;
-  --color-primary-hover: #e07c14;
-  --color-primary-light: #fff4e6;
-  --color-primary-hover: #e07c14;
 
-  /* =========================
-     BACKGROUNDS
-  ========================== */
-  --bg-main: #f1f1f2;
-  --bg-card: #ffffff;
-
-  /* =========================
-     TEXT
-  ========================== */
-  --text-primary: #000000;
-  --text-secondary: #313133;
-  --text-muted: #666666;
-  /* variables.css */
-
-  /* Primary brand colors */
-
-  --color-primary: #ff4c00; /* Orange (main buttons / highlights) */
-  --color-secondary: #1d1d1b; /* Dark gray / almost black (text) */
-  --color-accent: #f7f7f7; /* Light gray (backgrounds / cards) */
-  --color-white: #ffffff; /* White (text on primary buttons / backgrounds) */
-  --color-black: #000000; /* Black */
-  --color-light-gray: #e5e5e5; /* Lighter gray (borders / subtle backgrounds) */
-  --color-dark-gray: #707070; /* Darker gray (secondary text) */
-  --color-success: #006b5b; /* Green (success messages / badges) */
-  --color-error: #dc3545; /* Red (error messages / badges) */
-  --color-warning: #ffc107; /* Yellow / orange (alerts / warnings) */
-  --color-link: #007bff; /* Blue links */
-
-  /* Optional: gradients if used on buttons or headers */
-  :root {
-    --gradient-primary: linear-gradient(90deg, #ff4c00 0%, #ff7f50 100%);
-    --gradient-secondary: linear-gradient(90deg, #1d1d1b 0%, #3a3a39 100%);
-  }
-}
 
 .product-container {
   width: min(95%, 1200px);
@@ -364,4 +312,45 @@
   border: 2px solid #ff4500; /* Use your primary brand color (e.g., Orange/Red) */
   box-shadow: 0 0 10px rgba(255, 69, 0, 0.2); /* Optional: add a soft glow */
   opacity: 1; /* Full brightness */
+}
+/* !zoooom */
+/* The "Window" */
+.main-image-container {
+  width: 100%;
+  max-width: 400px; /* Match your current design size */
+  height: 400px;
+  overflow: hidden; /* CRITICAL: This clips the zoomed image */
+  border-radius: 8px;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  border: 1px solid var(--color-border-gray);
+}
+
+/* The Image itself */
+.zoom-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease; /* Smooth zoom transition */
+}
+
+/* The Zoom Effect */
+.main-image-container:hover .zoom-img {
+  transform: scale(1.5); /* 1.5x zoom. Adjust to 2.0 for more zoom */
+}
+.main-image-container {
+    /* ... existing styles ... */
+    position: relative;
+}
+
+.main-image-container:hover .zoom-img {
+    transform: scale(2);
+}
+
+/* Add this to make the zoom follow the mouse roughly */
+.main-image-container:active .zoom-img {
+    transition: none; /* Instant movement when clicking/dragging */
 }

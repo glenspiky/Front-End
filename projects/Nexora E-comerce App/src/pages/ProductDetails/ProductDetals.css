@@ -1,0 +1,367 @@
+:root {
+  /* =========================
+    BRAND COLORS
+  ========================== */
+  --color-primary: #f68b1e; /* Jumia Orange */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --bg-purple: #b177da;
+  /* =========================
+     NEUTRAL COLORS
+  ========================== */
+  --color-dark-gray: #313133;
+  --color-medium-gray: #666666;
+  --color-light-gray: #f1f1f2;
+  --color-border-gray: #ededed;
+  --color-primary-hover: #e07c14;
+  --color-primary-light: #fff4e6;
+  --color-primary-hover: #e07c14;
+
+  /* =========================
+     BACKGROUNDS
+  ========================== */
+  --bg-main: #f1f1f2;
+  --bg-card: #ffffff;
+
+  /* =========================
+     TEXT
+  ========================== */
+  --text-primary: #000000;
+  --text-secondary: #313133;
+  --text-muted: #666666;
+  /* variables.css */
+
+  /* Primary brand colors */
+
+  --color-primary: #ff4c00; /* Orange (main buttons / highlights) */
+  --color-secondary: #1d1d1b; /* Dark gray / almost black (text) */
+  --color-accent: #f7f7f7; /* Light gray (backgrounds / cards) */
+  --color-white: #ffffff; /* White (text on primary buttons / backgrounds) */
+  --color-black: #000000; /* Black */
+  --color-light-gray: #e5e5e5; /* Lighter gray (borders / subtle backgrounds) */
+  --color-dark-gray: #707070; /* Darker gray (secondary text) */
+  --color-success: #006b5b; /* Green (success messages / badges) */
+  --color-error: #dc3545; /* Red (error messages / badges) */
+  --color-warning: #ffc107; /* Yellow / orange (alerts / warnings) */
+  --color-link: #007bff; /* Blue links */
+
+  /* Optional: gradients if used on buttons or headers */
+  :root {
+    --gradient-primary: linear-gradient(90deg, #ff4c00 0%, #ff7f50 100%);
+    --gradient-secondary: linear-gradient(90deg, #1d1d1b 0%, #3a3a39 100%);
+  }
+}
+
+.product-container {
+  width: min(95%, 1200px);
+  margin: auto;
+}
+.product {
+  display: flex;
+  justify-content: space-between;
+}
+.product .product-main {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  justify-content: space-between;
+}
+.product-left .images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.images .gallery {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.images .gallery img {
+  width: 90%;
+  padding: 5px;
+  cursor: pointer;
+  max-width: 50px;
+  margin: 3px;
+  border-radius: 6px;
+}
+.images .main-image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.images .main-image img {
+  width: 100%;
+  max-width: 300px;
+}
+.product .product-left {
+  width: 40%;
+}
+/* ?------Product centre-------- */
+.product-center {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 5px;
+}
+.pro-desc > h2 {
+  font-size: clamp(1em, 2vw, 1.5em);
+  font-weight: 600;
+  color: var(--color-black);
+}
+.pro-desc > p {
+  font-size: clamp(0.8em, 1.5vw, 1em);
+  font-weight: 500;
+  color: var(--color-secondary);
+  padding-top: 5px;
+}
+.product-center .rating {
+  display: flex;
+  gap: 5px;
+}
+.offer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-success);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 5px;
+
+  margin-top: 5px;
+}
+.offer > h2 {
+  background-color: var(--color-success);
+  font-size: clamp(0.8em, 2vw, 1em);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: var(--color-white);
+}
+.offer span {
+  font-size: clamp(0.5em, 1.5vw, 0.8em);
+  font-weight: 300;
+  color: var(--color-white);
+}
+.offer .offer-desc-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.offer .offer-desc {
+  padding: 0.5em;
+  align-items: center;
+  display: flex;
+  justify-self: start;
+  gap: 5px;
+}
+.offer-desc > h2 {
+  font-size: clamp(1em, 2.8vw, 2em);
+}
+.offer-desc-left > h4 {
+  background-color: var(--color-error);
+  padding: 0.1em;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: clamp(0.5em, 1.5vw, 0.8em);
+  font-weight: 600;
+  width: 4em;
+}
+.offer-desc > p {
+  margin-left: auto;
+  margin-bottom: auto;
+  background-color: var(--color-primary);
+  padding: 0.1em;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: clamp(0.8em, 1.6vw, 1em);
+  font-weight: 400;
+  color: var(--color-white);
+  width: 4em;
+}
+.offer-desc-left > h3 {
+  font-size: clamp(0.5em, 1.5vw, 0.8em);
+  font-weight: 300;
+  text-decoration: line-through;
+}
+.pro-desc > span {
+  color: var(--color-success);
+}
+.pro-desc > h5 {
+  font-size: clamp(0.8em, 2vw, 1em);
+}
+.pro-desc ul {
+  padding-left: 1.5em;
+  margin-top: 5px;
+}
+/* .product-right img {
+  width: 150px;
+}
+.revews{
+
+} */
+ /* Layout Container */
+.product-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 30%;
+}
+
+/* Purchase Card (QR + Counter) */
+.purchase-card {
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.qr-section {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.qr-code {
+  width: 80px;
+  height: 80px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #333;
+  border-radius: 25px;
+  padding: 5px 15px;
+  margin: 1rem 0;
+}
+
+.add-cart {
+  background-color: var(--color-primary);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-white);
+  padding: 0.4em;
+  margin-top:auto;
+}
+.add-cart:hover {
+  background-color: var(--bg-card);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  transition: 0.3s ease-in-out;
+}
+
+/* Reviews Section */
+.reviews-container h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #f4f4f4;
+  padding-bottom: 0.5rem;
+}
+
+.review-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #efefef;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.user-icon {
+  width: 35px;
+  height: 35px;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-meta strong {
+  font-size: 0.9rem;
+}
+
+.user-meta span {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.review-rating {
+  color: #ffb800;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.review-comment {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #444;
+  font-style: italic;
+}
+.related-section .products-container{
+  display: flex;
+  
+}
+.extra-details {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background: #fcfcfc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+
+
+.gallery-item:hover {
+  opacity: 0.9; /* Slightly brighter on hover */
+  border-color: #999;
+}
+
+/* THE SELECTED STATE */
+.selected-thumb {
+  border: 2px solid #ff4500; /* Use your primary brand color (e.g., Orange/Red) */
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.2); /* Optional: add a soft glow */
+  opacity: 1; /* Full brightness */
+}

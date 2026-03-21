@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { CartPage } from './pages/Cart/CartPage';
 import "./styles/App.css"
 import { Navbar } from "./components/Navbar/Navbar";
+import ProductDetails from './pages/ProductDetails/ProductDetails';
 function App() {
   return (
     <div className="app-container">
@@ -14,11 +15,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<CartPage />} />{" "}
+          <Route path="/product/:id" element={<ProductDetails />} />{" "}
         </Routes>
       </main>
-      
-        <Footer></Footer>
-     
+
+      <Footer></Footer>
     </div>
   );
 }

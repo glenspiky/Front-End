@@ -1,17 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./Products.css";
-import {useCart} from '../../context/CartContext'
+import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
-  const {addToCart}=useCart()
+  const { addToCart } = useCart();
 
   // 1. Fetching Logic
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("https://dummyjson.com/products");
-      const data = await response.json();
-      setProducts(data.products);
+      try {
+        const response = await fetch(
+          "https://dummyjson.com/products?limit=100",
+        );
+        const data = await response.json();
+
+        // Filter logic:
+        const highQualityProducts = data.products.filter((item) => {
+          // We use a Set to count only UNIQUE image URLs
+          const uniqueImages = new Set(item.images);
+          return uniqueImages.size >= 2;
+        });
+       
+        setProducts(highQualityProducts);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
     fetchProducts();
   }, []);
@@ -36,7 +51,9 @@ export const Products = () => {
         {products.map((item) => (
           <div className="product-item" key={item.id}>
             <div className="pro-img">
-              <img src={item.images[0]} alt={item.title} />
+              <Link to={`/product/${item.id}`}>
+                <img src={item.thumbnail} alt={item.title} />
+              </Link>
             </div>
             <div className="pro-desc">
               <h3>{item.title}</h3>
@@ -45,7 +62,7 @@ export const Products = () => {
                 {renderStars(item.rating)}
                 <span className="rating-num">{item.rating.toFixed(1)}</span>
               </div>
-              <div onClick={()=>addToCart(item)} className="add-cart">
+              <div onClick={() => addToCart(item)} className="add-cart">
                 <i className="ri-shopping-basket-fill"></i>
                 <p>Add to cart</p>
               </div>

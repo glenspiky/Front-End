@@ -80,7 +80,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2026 ShopLane. All rights reserved.</p>
+        <p>&copy; 2026 Nexora. All rights reserved.</p>
         <div className="payment-icons">
           <i className="ri-visa-line"></i>
           <i className="ri-mastercard-line"></i>

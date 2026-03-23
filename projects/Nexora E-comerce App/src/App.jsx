@@ -5,7 +5,7 @@ import { CartPage } from './pages/Cart/CartPage';
 import "./styles/App.css"
 import { Navbar } from "./components/Navbar/Navbar";
 import ProductDetails from './pages/ProductDetails/ProductDetails';
-import { SearchResults } from "./pages/SearchResults/SearchResults";
+import SearchResults from "./pages/SearchResults/SearchResults";
 function App() {
   return (
     <div className="app-container">

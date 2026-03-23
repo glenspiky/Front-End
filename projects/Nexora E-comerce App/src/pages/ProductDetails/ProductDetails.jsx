@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import "./ProductDetals.css";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
+import { ProductDetailsSkeleton } from "../../components/Skeleton/Skeleton";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -10,9 +11,11 @@ export default function ProductDetails() {
   const [count, setCount] = useState(0);
   const [gallery, setGallery] = useState(null);
   const [related, setRelated] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getProductAndRelated = async () => {
+      setLoading(true);
       try {
         // 1. Get the main product
         const res = await fetch(`https://dummyjson.com/products/${id}`);
@@ -37,6 +40,8 @@ export default function ProductDetails() {
         }
       } catch (err) {
         console.error("Fetch error:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -44,6 +49,7 @@ export default function ProductDetails() {
 
     window.scrollTo(0, 0);
   }, [id]);
+  if (loading) return <ProductDetailsSkeleton />;
   if (!product) return <p>Loading...</p>;
   //rating
   function renderStars(rating) {

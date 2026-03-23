@@ -6,7 +6,7 @@ export const Category = () => {
     <div className="hero-section">
       <div className="categories">
         <div className="categories-container">
-          <div  className="cat-left">
+          <div className="cat-left">
             <span id="mobile"></span>
             <i className="ri-equalizer-line"></i>
             <p>Category</p>

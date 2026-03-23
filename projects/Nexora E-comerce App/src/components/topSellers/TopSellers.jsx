@@ -9,14 +9,7 @@ import banner7 from "../../assets/images/banner7.png";
 
 export const TopSellers = () => {
   // Original banners
-  const banners = [
-    banner1,
-    banner2,
-    banner3,
-    banner5,
-    banner6,
-    banner7,
-  ];
+  const banners = [banner1, banner2, banner3, banner5, banner6, banner7];
 
   // Clone first slide for smooth infinite loop
   const slides = [...banners, banners[0]];
@@ -38,12 +31,12 @@ export const TopSellers = () => {
     setIsTransitioning(true);
     setIndex((prev) => prev - 1);
   };
-useEffect(()=>{
-    const interval=setInterval(()=>{
-        HandleSlideLeft()
-    },4000)
-    return()=>clearInterval(interval)
-},[])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      HandleSlideLeft();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
   // Reset index after reaching the cloned slide
   useEffect(() => {
     if (index === slides.length - 1) {

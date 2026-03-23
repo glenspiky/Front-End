@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./Products.css";
 import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { SkeletonLoader } from "../Skeleton/Skeleton";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
 
   // 1. Fetching Logic
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       try {
         const response = await fetch(
           "https://dummyjson.com/products?limit=100",
@@ -22,10 +25,12 @@ export const Products = () => {
           const uniqueImages = new Set(item.images);
           return uniqueImages.size >= 2;
         });
-       
+
         setProducts(highQualityProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchProducts();
@@ -47,29 +52,33 @@ export const Products = () => {
 
   return (
     <section className="products-section">
-      <div className="products-container">
-        {products.map((item) => (
-          <div className="product-item" key={item.id}>
-            <div className="pro-img">
-              <Link to={`/product/${item.id}`}>
-                <img src={item.thumbnail} alt={item.title} />
-              </Link>
-            </div>
-            <div className="pro-desc">
-              <h3>{item.title}</h3>
-              <h2>KES {item.price.toLocaleString()}</h2>
-              <div className="rating">
-                {renderStars(item.rating)}
-                <span className="rating-num">{item.rating.toFixed(1)}</span>
+      {loading ? (
+        <SkeletonLoader count={8} />
+      ) : (
+        <div className="products-container">
+          {products.map((item) => (
+            <div className="product-item" key={item.id}>
+              <div className="pro-img">
+                <Link to={`/product/${item.id}`}>
+                  <img src={item.thumbnail} alt={item.title} />
+                </Link>
               </div>
-              <div onClick={() => addToCart(item)} className="add-cart">
-                <i className="ri-shopping-basket-fill"></i>
-                <p>Add to cart</p>
+              <div className="pro-desc">
+                <h3>{item.title}</h3>
+                <h2>KES {item.price.toLocaleString()}</h2>
+                <div className="rating">
+                  {renderStars(item.rating)}
+                  <span className="rating-num">{item.rating.toFixed(1)}</span>
+                </div>
+                <div onClick={() => addToCart(item)} className="add-cart">
+                  <i className="ri-shopping-basket-fill"></i>
+                  <p>Add to cart</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

@@ -1,0 +1,509 @@
+.navbar-container {
+  width: 100%;
+  background-color: var(--bg-card);
+  z-index: 10000000000000;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  gap: 5rem;
+  width: min(95%, 1200px);
+  margin: 0 auto;
+  height: 70px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+}
+.location {
+  display: none;
+  gap: 5px;
+  justify-content: baseline;
+  text-transform: capitalize;
+}
+.location i {
+  font-size: 30px;
+}
+.account {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.account i {
+  font-size: clamp(14px, 3vw, 32px);
+}
+.account span {
+  display: flex;
+  align-items: center;
+}
+.account:hover {
+  color: var(--color-primary);
+}
+.help i {
+  font-size: clamp(14px, 3vw, 32px);
+  font-weight: 400;
+}
+.help span {
+  display: flex;
+  align-items: center;
+}
+
+.help {
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+  gap: 5px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+.help:hover {
+  color: var(--color-primary);
+}
+.cart {
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+  gap: 5px;
+  position: relative;
+}
+#cartValue {
+  position: absolute;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 50%;
+  height: 20px;
+
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: -5px;
+  top: -5px;
+}
+.cart i {
+  font-size: clamp(14px, 3vw, 32px);
+}
+.cart:hover {
+  color: var(--color-primary);
+}
+/* .search-bar {
+  display: flex;
+  flex: 1;
+  max-width: 600px;
+  gap: 5px;
+} */
+
+.search-bar {
+  flex: 1;
+  min-width: 150px;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+.search-bar form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+.search-bar i {
+  position: absolute;
+  left: 10px;
+  font-size: 23px;
+  color: var(--color-primary);
+  z-index: 2;
+}
+.search-bar input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--color-dark-gray);
+  padding: 0 12px 0 35px;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+.search-bar input::placeholder {
+  font-size: clamp(12px, 1.5vw, 16px);
+  color: var(--color-medium-gray);
+}
+.search-bar button {
+  padding: 0.6rem 1rem;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.suggestions-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  max-height: 240px;
+  overflow: auto;
+  margin-top: 8px;
+}
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.suggestion-item:hover {
+  background: var(--bg-card);
+}
+
+/* .location{
+  display: flex;
+  flex-direction: column;
+
+  white-space: nowrap;
+}
+.location p{
+  font-size: 12px;
+}
+.location span{
+  display: flex;
+  gap: 3px;
+  padding: -100px;
+}
+.location span i{
+  font-size: 18px;
+} */
+.account-wrapper {
+  position: relative;
+}
+.navbar .acc-container {
+  position: absolute;
+  background-color: var(--color-white);
+  display: none;
+  flex-direction: column;
+  width: 200px;
+  height: 230px;
+  top: 100%;
+  background-color: var(--color-white);
+  padding: 10px;
+  z-index: 1000000;
+}
+
+.navbar .acc-container button {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+.navbar .acc-container span {
+  display: flex;
+  padding: 15px;
+  gap: 10px;
+  align-items: baseline;
+  border: none;
+  cursor: pointer;
+}
+.navbar .acc-container span i {
+  font-size: 25px;
+}
+.navbar .acc-container span:hover p {
+  font-weight: 600;
+}
+.help-wrapper {
+  position: relative;
+}
+.help-container {
+  position: absolute;
+  background-color: var(--color-white);
+  display: none;
+  flex-direction: column;
+  width: 200px;
+  z-index: 100000000;
+  top: 100%;
+  background-color: var(--color-white);
+}
+.navbar .help-container button {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .help-container button i {
+  font-size: 25px;
+}
+.navbar .help-container span {
+  display: flex;
+  padding: 15px;
+  gap: 5px;
+  align-items: baseline;
+  border: none;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+}
+.navbar .help-container span i {
+  font-size: 25px;
+}
+.navbar .help-container span:hover p {
+  font-weight: 600;
+}
+.active {
+  display: none;
+}
+
+/* ---------Navbar responsive design------------- */
+
+@media screen and (max-width: 1181px) {
+  .navbar .account p {
+    display: none;
+  }
+  .navbar .help p {
+    display: none;
+  }
+}
+@media screen and (max-width: 905px) {
+  .navbar {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 713px) {
+  .navbar .account span {
+    display: none;
+  }
+  .navbar .help span {
+    display: none;
+  }
+  .cart p {
+    display: none;
+  }
+}
+@media screen and (max-width: 946px) {
+  .navbar .help-container {
+    right: -90px;
+  }
+  .navbar .acc-container {
+    right: -30px;
+    top: 40px;
+  }
+}
+@media screen and (max-width: 732px) {
+  .navbar .help-container {
+    right: -30px;
+  }
+}
+/* @media screen and (max-width: 602px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 5px;
+    
+    height: 15vh;
+  }
+  .categories-container .cat-left {
+      margin-left: 0;
+    }
+
+  .navbar .nav-actions {
+    grid-row: 1/2;
+    grid-column: 2/2;
+    justify-self: end;
+  }
+  .nav-actions i {
+    font-size: 25px;
+  }
+  .search-bar input {
+    min-width: 97vw;
+    margin: 0 auto;
+    font-size: 16px;
+    padding-left: 10vw;
+    padding-bottom: 5px;
+  }
+  .search-bar input::placeholder {
+    font-size: clamp(12px, 3.5vw, 1rem);
+  }
+  .search-bar button {
+    display: none;
+  }
+} */
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: grid;
+    /* Two columns: Logo on left, Actions on right */
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    height: auto; /* Let content define height */
+    padding: 3px 5px;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Logo stays top-left */
+  .navbar img {
+    height: 30px;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  /* Actions (Account, Help, Cart) stay top-right */
+  .navbar .nav-actions,
+  .account-wrapper,
+  .help-wrapper,
+  .cart {
+    grid-row: 1;
+  }
+
+  /* Combine account, help, and cart into a row */
+  .account-wrapper,
+  .help-wrapper {
+    display: none; /* Usually hidden on small mobile to save space */
+  }
+
+  .cart {
+    grid-column: 2;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+  }
+
+  /* SEARCH BAR: Move to the second row and span across both columns */
+  .search-bar {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    width: 100%;
+    max-width: none;
+    margin-top: 5px;
+  }
+  .search-bar i {
+    margin-left: auto;
+    z-index: 100000000000;
+  }
+  .search-bar input {
+    width: 100%;
+    min-width: 100%;
+    height: 45px; /* Slightly taller for easier tapping */
+    border-radius: 8px;
+    background-color: var(--color-light-gray);
+    border: none;
+    position: relative;
+  }
+
+  .search-bar i {
+    left: 10px; /* Ensure icon stays inside input */
+  }
+
+  .search-bar button {
+    display: none; /* Hide text button on mobile */
+  }
+
+  /* Adjust the cart badge for mobile */
+  #cartValue {
+    height: 18px;
+    width: 18px;
+    font-size: 10px;
+  }
+}
+/* ? =drop down */
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Dropdown box */
+.suggestions-box {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Each suggestion */
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* dim effect */
+  z-index: 5000000000000000;
+}
+.acc-container,
+.help-container {
+  position: absolute;
+  z-index: 1000000000000000000;
+}
+.overlay {
+  backdrop-filter: blur(4px);
+}
+@media screen and (max-width: 1181px) {
+  .navbar-container {
+  width: 100%;
+  background-color: var(--bg-card);
+  z-index: 10000000000000;
+}
+
+
+.navbar {
+ 
+  width: 100%;
+  margin: 0 auto;
+  height: 70px;
+  padding: 5px;
+}
+}

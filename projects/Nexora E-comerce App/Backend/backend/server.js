@@ -3,3 +3,16 @@
 
 
 //! load environment variables
+const express=require("express")
+const cors =require("cors")
+
+//!import routes
+//goes here
+
+//initialize
+const app=express()
+
+//middleware
+
+
+

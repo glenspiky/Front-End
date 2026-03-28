@@ -3,6 +3,7 @@ import { useCart } from "../../context/CartContext";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import CartItem from "../CartItem/CartItem";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { cart, setCart } = useCart();
@@ -50,7 +51,12 @@ export const Cart = () => {
         <h1 className="cart-title">Cart ({cart.length})</h1>
 
         <div className="cart-items-list">
-          {cart.length <= 0 ? <h2>Cart is empty</h2> : null}
+          {cart.length <= 0 ? (
+            <>
+              <h2>Cart is empty</h2>
+              <Link to="/"><button>Continue shopping</button></Link>
+            </>
+          ) : null}
           {cart.map((item, index) => (
             <CartItem
               key={`${item.id}-${index}`}

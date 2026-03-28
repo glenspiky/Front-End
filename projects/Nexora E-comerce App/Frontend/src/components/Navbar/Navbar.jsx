@@ -165,7 +165,9 @@ export const Navbar = () => {
                     </span>
                     <span>
                       <i className="ri-heart-line"></i>
-                      <p>Wish List</p>
+                      <Link to="/wishlist">
+                        <p>Wish List</p>
+                      </Link>
                     </span>
                   </>
                 ) : null}

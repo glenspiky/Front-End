@@ -163,7 +163,16 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
   padding: 10px;
 }
 
-/* 🔥 FIXED MOBILE */
+.cart-items-list button{
+  padding: 10px;
+  background-color: var(--color-success);
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.cart-items-list button:hover{
+  background-color: var(--color-primary);
+}
 @media (max-width: 768px) {
   .cart-page-container {
     flex-direction: column;

@@ -1,0 +1,113 @@
+h2 {
+  font-size: clamp(1.2em, 2vw, 1.5em);
+  font-weight: 600;
+  color: #006b5b;
+}
+h3 {
+  font-size: clamp(0.8em, 2vw, 1em);
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.548);
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.auth {
+  margin: auto;
+  margin-top: 5px;
+  width: min(60%, 500px);
+  background-color: #aca6a554;
+  height: 80%;
+  padding: clamp(1rem, 2vw, 2rem);
+  border-radius: 5px;
+  animation: slideUp 0.6s ease-out;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+}
+
+.form-group input {
+  width: 100%;
+  height: clamp(2.2rem, 2vw, 2.4rem);
+  margin-left: auto;
+  padding-left: 10px;
+  align-self: flex-start;
+  border: none;
+  border-radius: 4px;
+}
+.form-group input:focus {
+  outline: none;
+  border-bottom: 2px solid #ff4c00;
+}
+.form-group label {
+  width: fit-content;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  align-self: flex-start;
+  margin-bottom: 3px;
+}
+@media screen and (max-width: 780px) {
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+}
+.auth button {
+  width: 100%;
+  margin-top: 20px;
+  font-size: clamp(1em, 2vw, 1.2em);
+  background: linear-gradient(83deg, #ff4c00 0%, #006b5b 46%, #ff4c00 100%);
+  color: white;
+  border: none;
+  padding: clamp(0.8em, 2vw, 0.5em);
+  cursor: pointer;
+  border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+.auth button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+.auth p {
+  font-size: clamp(0.9em, 2vw, 1em);
+  margin-top: 15px;
+}
+.auth .auth-link {
+  font-size: clamp(0.88em, 2vw, 0.98em);
+  font-weight: 600;
+  color: #006b5b;
+}
+.auth .auth-link:hover {
+  text-decoration: underline;
+}
+hr{
+    margin-top: 20px;
+}
+@media screen and (max-width: 600px) {
+    .navbar input{
+display: none;
+    }
+    .navbar{
+        position: static;
+        background-color: transparent;
+    }
+    .navbar-container{
+                background-color: transparent;
+
+    }
+}
+@media screen and (max-width: 525px) {
+    .auth{
+width: 94%;
+    }
+}

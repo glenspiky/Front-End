@@ -5,9 +5,13 @@ import "./styles/App.css";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import Layout from "./components/Layout/Layout";
-import { LogIn } from "./pages/Login/LogIn";
+import { LoginPage } from "./pages/auth/LoginPage";
+import { SignUpPage } from "./pages/auth/SignUpPage";
+import { WishListPage } from "./pages/wish-list/WishListPage";
 
 function App() {
+ 
+  
   return (
     <Layout>
       <Routes>
@@ -15,7 +19,9 @@ function App() {
         <Route path="/cart" element={<CartPage />} />{" "}
         <Route path="/product/:id" element={<ProductDetails />} />{" "}
         <Route path="/search" element={<SearchResults />} />
-        <Route path="/login" element={<LogIn/>}/>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/wishlist" element={<WishListPage />} />
       </Routes>
     </Layout>
   );

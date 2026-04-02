@@ -1,8 +1,9 @@
-import React from 'react'
-import { Wishlist } from '../../components/wishlist/Wishlist'
-
+import React from "react";
+import { Wishlist } from "../../components/ProductCard/Wishlist";
 export const WishListPage = () => {
   return (
-    <div><Wishlist/></div>
-  )
-}
+    <div>
+      <Wishlist></Wishlist>
+    </div>
+  );
+};

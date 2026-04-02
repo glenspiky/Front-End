@@ -37,6 +37,7 @@
 }
 .top-selers-section .top-sellers-left span.head h3 {
   justify-self: center;
+  color: var(--color-white);
 }
 .top-sellers {
   display: flex;
@@ -113,9 +114,13 @@
   .top-selers-section .top-sellers {
     display: flex;
     flex-direction: column-reverse;
+  
+  }
+  .top-sellers .head{
+    display: none;
   }
   .top-selers-section .top-sellers .top-sellers-left .top-items {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fill, minmax(100px, 5fr));
     height: 100%;
     grid-gap: clamp(5px, 0.5vw, 10px);
@@ -131,6 +136,7 @@
     cursor: pointer;
   }
 }
+
 .slider-container {
   overflow: hidden;
   width: 100%;

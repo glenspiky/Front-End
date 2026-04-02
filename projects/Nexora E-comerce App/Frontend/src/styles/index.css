@@ -17,5 +17,12 @@
 }
 body {
   background-color: var(--color-accent);
-
 }
+#root,
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers all children horizontally */
+}
+

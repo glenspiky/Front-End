@@ -71,8 +71,9 @@ h3 {
   padding: clamp(0.8em, 2vw, 0.5em);
   cursor: pointer;
   border-radius: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .auth button:hover {
   transform: translateY(-2px);
@@ -90,24 +91,17 @@ h3 {
 .auth .auth-link:hover {
   text-decoration: underline;
 }
-hr{
-    margin-top: 20px;
+hr {
+  margin-top: 20px;
 }
-@media screen and (max-width: 600px) {
-    .navbar input{
-display: none;
-    }
-    .navbar{
-        position: static;
-        background-color: transparent;
-    }
-    .navbar-container{
-                background-color: transparent;
+/* @media screen and (max-width: 600px) {
+ .navbar-container{
+  margin: 0;
+ }
 
-    }
-}
+} */
 @media screen and (max-width: 525px) {
-    .auth{
-width: 94%;
-    }
+  .auth {
+    width: 94%;
+  }
 }

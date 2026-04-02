@@ -49,7 +49,7 @@
   height: 100%;
   object-fit: contain;
 }
-.remove-btn{
+.remove-btn {
   padding: 2px;
   border-radius: 3px;
   border: none;
@@ -57,7 +57,7 @@
   color: white;
   cursor: pointer;
 }
-.remove-btn:hover{
+.remove-btn:hover {
   background-color: var(--color-primary-hover);
 }
 
@@ -71,9 +71,17 @@
   margin-bottom: 5px;
   color: var(--text-primary);
 }
-.quantity-controls .add{
+.quantity-controls .add {
   background: var(--color-success);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantity-controls button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .brand {
   color: var(--text-muted);
@@ -113,6 +121,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
 }
 
 .quantity-controls button {
@@ -122,9 +131,7 @@
   background: gray;
   cursor: pointer;
   border-radius: 5px;
-    color: var(--color-white);
-
-
+  color: var(--color-white);
 }
 
 .cart-summary {
@@ -135,7 +142,8 @@
   position: sticky;
   top: 20px;
 
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 .checkout-btn {
   width: 100%;
@@ -163,15 +171,24 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
   padding: 10px;
 }
 
-.cart-items-list button{
+.cart-items-list button {
   padding: 10px;
   background-color: var(--color-success);
   border: none;
   border-radius: 5px;
   margin-top: 5px;
+  color: var(--color-white);
 }
-.cart-items-list button:hover{
+.cart-items-list button:hover {
   background-color: var(--color-primary);
+}
+.empty-cart {
+  justify-self: center;
+  align-items: center;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 @media (max-width: 768px) {
   .cart-page-container {

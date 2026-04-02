@@ -9,12 +9,10 @@ import { LoginPage } from "./pages/auth/LoginPage";
 import { SignUpPage } from "./pages/auth/SignUpPage";
 import { WishListPage } from "./pages/wish-list/WishListPage";
 
-function App() {
- 
-  
+function App() { 
   return (
     <Layout>
-      <Routes>
+      <Routes> 
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />{" "}
         <Route path="/product/:id" element={<ProductDetails />} />{" "}

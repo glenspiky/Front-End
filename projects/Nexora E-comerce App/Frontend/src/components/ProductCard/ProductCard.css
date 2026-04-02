@@ -57,6 +57,8 @@
   font-size: 0.8em;
   font-weight: 400;
 }
+  
+
 .products-section .products-container .product-item .add-cart {
   background-color: var(--color-primary);
   border-radius: 5px;
@@ -67,7 +69,7 @@
   cursor: pointer;
   color: var(--color-white);
   padding: 0.4em;
-  margin-top:auto;
+  margin-top: auto;
 }
 .products-section .products-container .product-item .add-cart:hover {
   background-color: var(--bg-card);
@@ -83,4 +85,28 @@
 }
 .rating i:hover {
   color: #ffc107;
+}
+.product-item {
+  position: relative; /* This is the anchor for the overlay */
+}
+
+.heart-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 50; /* High number to stay above the image */
+}
+
+/* Style the button inside Wishlist if it looks like a plain link */
+.heart-overlay button {
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }

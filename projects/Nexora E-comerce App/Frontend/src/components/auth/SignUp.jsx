@@ -1,8 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import "./auth.css";
 import { Link } from "react-router-dom";
 
 export const SignUp = () => {
+  const [password, setPassword] = useState("");
+
+  function handlepassword(e) {
+    setPassword(e.target.value);
+    console.log(password);
+  }
   return (
     <div className="auth">
       <div className="signup-container">
@@ -36,7 +43,9 @@ export const SignUp = () => {
             <input
               type="password"
               id="password"
+              onChange={(e) => handlepassword()}
               name="password"
+              value={password}
               placeholder="Create a password (min. 6 characters)"
               required
             />
@@ -48,6 +57,8 @@ export const SignUp = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
+              value={password}
+              onChange={(e) => handlepassword}
               placeholder="Confirm your password"
               required
             />
@@ -58,7 +69,7 @@ export const SignUp = () => {
         <p>
           Already have an account?{" "}
           <span>
-            <Link  to="/login" className="auth-link">
+            <Link to="/login" className="auth-link">
               Login
             </Link>
           </span>

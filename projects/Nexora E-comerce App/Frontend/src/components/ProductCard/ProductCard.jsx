@@ -3,6 +3,7 @@ import ProductThumbnail from "./ProductThumbnail";
 import ProductTitle from "./ProductTitle";
 import ProductPrice from "./ProductPrice";
 import ProductRating from "./ProductRating";
+import { Wishlist } from "./Wishlist";
 
 export const ProductCard = ({ item, addToCart }) => {
   return (
@@ -14,6 +15,9 @@ export const ProductCard = ({ item, addToCart }) => {
             thumbnail={item.thumbnail}
             title={item.title}
           />
+          <div className="heart-overlay">
+            <Wishlist product={item} />
+          </div>
           <div className="pro-desc">
             <ProductTitle title={item.title} />
             <ProductPrice price={item.price} />

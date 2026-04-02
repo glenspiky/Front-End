@@ -142,7 +142,7 @@ export const Navbar = () => {
                 <i className="ri-user-3-line"></i>
                 <span>
                   <p>Account</p>
-                  <i className="ri-arrow-drop-down-line"></i>
+                  <i className="ri-arrow-drop-down-line drop-down"></i>
                 </span>
               </div>
               <div
@@ -183,13 +183,14 @@ export const Navbar = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 helpContainer();
+                j;
               }}
             >
               <div className="help">
                 <i className="ri-question-line"></i>
                 <span>
                   <p>Help</p>
-                  <i className="ri-arrow-drop-down-line"></i>
+                  <i className="ri-arrow-drop-down-line drop-down"></i>
                 </span>
               </div>
               <div
@@ -240,6 +241,17 @@ export const Navbar = () => {
               </div>
               <p>Cart</p>
             </Link>
+            <div
+              className="mobile-menu rotate"
+              onClick={(e) => {
+                e.stopPropagation();
+                helpContainer();
+              }}
+            >
+              <span className="bar-1"></span>
+              <span className="bar-2"></span>
+              <span className="bar-3"></span>
+            </div>
           </div>
         </div>
       </div>

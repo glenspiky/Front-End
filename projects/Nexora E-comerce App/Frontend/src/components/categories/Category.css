@@ -112,6 +112,9 @@
   display: none;
 }
 @media screen and (max-width: 600px) {
+  .hero-section{
+    margin-top: 5px;
+  }
   #catCenter p {
     display: flex;
   }

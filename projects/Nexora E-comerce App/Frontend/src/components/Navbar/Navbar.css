@@ -146,7 +146,7 @@ a {
   color: var(--color-medium-gray);
 }
 .search-bar button {
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.1rem;
   color: var(--color-white);
   background-color: var(--color-primary);
   border: none;
@@ -254,6 +254,7 @@ a {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
+
   margin: 5px;
   display: flex;
   gap: 10px;
@@ -283,7 +284,6 @@ a {
 .active {
   display: none;
 }
-
 /* ---------Navbar responsive design------------- */
 
 @media screen and (max-width: 1181px) {
@@ -299,6 +299,15 @@ a {
     gap: 1rem;
   }
 }
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (max-width: 713px) {
   .navbar .account span {
     display: none;
@@ -306,10 +315,62 @@ a {
   .navbar .help span {
     display: none;
   }
+  .navbar .account i {
+    display: block;
+  }
+
   .cart p {
     display: none;
   }
+
+  /*   height: 40px; */
+  /*   position: relative; */
+  /*   display: flex; */
+  /*   gap: 6px; */
+  /*   padding: 3px; */
+  /*   flex-direction: column; */
+  /*   cursor: pointer; */
+  /* } */
+  /* .mobile-menu span { */
+  /*   background-color: var(--color-primary); */
+  /*   height: 4px; */
+  /*   width: 30px; */
+  /*   border-radius: 50px; */
+  /* } */
+  .rotate {
+    animation-name: rotate;
+    animation-timing-function: linear;
+  }
+  .help-wrapper {
+    position: static;
+  }
+  @keyframes slide {
+    from {
+      transform: translateX(240px);
+    }
+    to {
+      transform: translateX(0px);
+    }
+  }
+
+@media screen and (max-width: 905px) {
+  .navbar .help-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    /* margin-right: 210px; */
+    top: 0;
+    height: 100dvh;
+    padding: 60px 10px;
+    width: 45vw;
+
+    animation: slide 70ms ease-in;
+  }
+  .navbar-container {
+    margin-top: -5px;
+  }
 }
+
 @media screen and (max-width: 946px) {
   .navbar .help-container {
     right: -90px;
@@ -319,6 +380,7 @@ a {
     top: 40px;
   }
 }
+
 @media screen and (max-width: 732px) {
   .navbar .help-container {
     right: -30px;
@@ -359,39 +421,52 @@ a {
     display: none;
   }
 } */
+
+@media screen and (max-width: 755px) {
+}
+@media screen and (max-width: 527px) {
+  .nav-logo {
+    max-width: 100px;
+    max-height: 40px;
+  }
+  .navbar-container {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
 @media screen and (max-width: 600px) {
   .navbar {
     display: grid;
-    /* Two columns: Logo on left, Actions on right */
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
-    height: auto; /* Let content define height */
+    height: auto;
     padding: 3px 5px;
     gap: 10px;
     width: 100%;
     margin: 0;
   }
 
-  /* Logo stays top-left */
   .navbar img {
     height: 30px;
     grid-row: 1;
+
     grid-column: 1;
   }
 
-  /* Actions (Account, Help, Cart) stay top-right */
   .navbar .nav-actions,
   .account-wrapper,
   .help-wrapper,
   .cart {
     grid-row: 1;
   }
-
-  /* Combine account, help, and cart into a row */
-  .account-wrapper,
-  .help-wrapper {
-    display: none; /* Usually hidden on small mobile to save space */
+  .help .drop-down {
+    display: none;
   }
+
+  /* .account-wrapper,
+  .help-wrapper {
+    display: none; 
+  } */
 
   .cart {
     grid-column: 2;
@@ -400,7 +475,6 @@ a {
     align-items: center;
   }
 
-  /* SEARCH BAR: Move to the second row and span across both columns */
   .search-bar {
     grid-row: 2;
     grid-column: 1 / span 2;
@@ -415,7 +489,7 @@ a {
   .search-bar input {
     width: 100%;
     min-width: 100%;
-    height: 45px; /* Slightly taller for easier tapping */
+    height: 45px;
     border-radius: 8px;
     background-color: var(--color-light-gray);
     border: none;
@@ -423,14 +497,13 @@ a {
   }
 
   .search-bar i {
-    left: 10px; /* Ensure icon stays inside input */
+    left: 10px;
   }
 
   .search-bar button {
-    display: none; /* Hide text button on mobile */
+    display: none;
   }
 
-  /* Adjust the cart badge for mobile */
   #cartValue {
     height: 18px;
     width: 18px;
@@ -491,19 +564,15 @@ a {
 .overlay {
   backdrop-filter: blur(4px);
 }
-@media screen and (max-width: 1181px) {
-  .navbar-container {
-  width: 100%;
-  background-color: var(--bg-card);
-  z-index: 10000000000000;
-}
-
-
-.navbar {
- 
-  width: 100%;
-  margin: 0 auto;
-  height: 70px;
-  padding: 5px;
-}
-}
+/*   .navbar-container { */
+/*     width: 100%; */
+/*     background-color: var(--bg-card); */
+/*     z-index: 10000000000000; */
+/*   } */
+/**/
+/*   .navbar { */
+/*     width: 100%; */
+/*     margin: 0 auto; */
+/*     height: 70px; */
+/*     padding: 5px; */
+/*   } */

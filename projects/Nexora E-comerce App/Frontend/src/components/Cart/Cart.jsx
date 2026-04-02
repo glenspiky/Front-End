@@ -52,10 +52,13 @@ export const Cart = () => {
 
         <div className="cart-items-list">
           {cart.length <= 0 ? (
-            <>
+            <div className="empty-cart">
               <h2>Cart is empty</h2>
-              <Link to="/"><button>Continue shopping</button></Link>
-            </>
+              <p>Cart is empty go to home page and shop</p>
+              <Link to="/">
+                <button>Continue shopping</button>
+              </Link>
+            </div>
           ) : null}
           {cart.map((item, index) => (
             <CartItem
@@ -76,7 +79,10 @@ export const Cart = () => {
           <span className="total-price">KES {subtotal.toLocaleString()}</span>
         </div>
 
-        <button className="checkout-btn">
+        <button
+          className="checkout-btn"
+          style={{ cursor: cart.length === 0 ? "not-allowed" : "pointer" }}
+        >
           CHECKOUT (KES {subtotal.toLocaleString()})
         </button>
       </aside>

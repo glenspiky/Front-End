@@ -11,11 +11,11 @@ export const Category = () => {
   }
   // disable scroling
   useEffect(() => {
-    if (isMobile) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    // if (isMobile) {
+    //   document.body.style.overflow = "hidden";
+    // } else {
+    //   document.body.style.overflow = "auto";
+    // }
   },[isMobile]);
   return (
     <>

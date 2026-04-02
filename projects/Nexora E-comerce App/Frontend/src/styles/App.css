@@ -14,5 +14,11 @@
   flex: 1; 
   overflow-y: auto; 
 }
+@media screen and (max-width: 600px) {
+.main-content {
+  
+  margin-top: 30px;
+}
+}
 
 /* Footer at the bottom */

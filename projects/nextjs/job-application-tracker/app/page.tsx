@@ -1,16 +1,32 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         <section className="container mx-auto px4 py-32">
-          <h1 className="text-black">
-            A better way to track your job applications
-          </h1>
-          <p className="text-gray-700">
-            Capture manage and organize your job search in one place
-          </p>
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-black mb-6 text-6xl font-bold ">
+              A better way to track your job applications
+            </h1>
+            <p className="text-muted-foreground ">
+              Capture manage and organize your job search in one place
+            </p>
+            <div className="flex-col items-center gap-4">
+              <Link href="/sign-up">
+                {" "}
+                <Button className="h-12 px-8 text-lg font-medium" size="lg">
+                  Start for free
+                  <ArrowRight />
+                </Button>
+              </Link>
+
+              <p>Free forever no credit card required</p>
+            </div>
+          </div>
         </section>
       </main>
     </div>
